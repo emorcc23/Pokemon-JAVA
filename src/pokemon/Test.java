@@ -25,6 +25,13 @@ public class Test {
         boolean salir = false;
         int opcion;
 
+        Entrenador entrenador1 = new Entrenador("alvaro", 4, 5, 50);
+        Entrenador entrenador2 = new Entrenador("estefy", 5, 6, 40);
+        Entrenador entrenador3 = new Entrenador("fran", 4, 76, 25);
+        listaEntrenadores.add(entrenador1);
+        listaEntrenadores.add(entrenador2);
+        listaEntrenadores.add(entrenador3);
+
         Scanner entrada = new Scanner(System.in);
 
         while (!salir) {
@@ -51,8 +58,10 @@ public class Test {
                     int pokeballs = entrada.nextInt();
                     System.out.println("Pociones");
                     int pociones = entrada.nextInt();
-                    Entrenador entrenador1 = new Entrenador(nombre, pokeballs, pociones);
-                    listaEntrenadores.add(entrenador1);
+                    System.out.println("Puntos");
+                    int puntos = entrada.nextInt();
+                    Entrenador entrenador4 = new Entrenador(nombre, pokeballs, pociones, puntos);
+                    listaEntrenadores.add(entrenador4);
                     System.out.println("\n \n Entreneador dado de alta");
                     break;
                 case 2:
@@ -109,30 +118,76 @@ public class Test {
                 case 3:
                     break;
                 case 4:
+                    
+                    System.out.println("Escoge un entrenador");
+                    for (int i = 0; i < listaEntrenadores.size(); i++) {
+                        System.out.println(i + 1 + " " + listaEntrenadores.get(i).getNombre());
+                    }
+                    int b = entrada.nextInt();
+                    if (listaEntrenadores.get(b - 1).getPociones() > 0) {
+                        
+                    }
+                    
                     break;
                 case 5:
+
+                    System.out.println("Escoge un entrenador");
+                    for (int i = 0; i < listaEntrenadores.size(); i++) {
+                        System.out.println(i + 1 + " " + listaEntrenadores.get(i).getNombre());
+                    }
+                    int a = entrada.nextInt();
+
+                    if (listaEntrenadores.get(a - 1).getPuntos() >= 10) {
+                        System.out.println("Tienes los puntos necesarios");
+                        System.out.println("¿Cuantas pociones quieres comprar?");
+                        int p = entrada.nextInt();
+                        int poc = 10;
+
+                        int compra = poc * p;
+                        System.out.println("¿Seguro que quieres hacer la compra de " + p + " pociones?");
+                        System.out.println("1- Si");
+                        System.out.println("2- No");
+                        int el = entrada.nextInt();
+                        if (el == 1) {
+                            int po = listaEntrenadores.get(a - 1).getPociones();
+                            int pu = listaEntrenadores.get(a - 1).getPuntos();
+                            if ((pu - compra) < 0) {
+                                System.out.println("Lo siento pero no tienes suficientes puntos para esta compra");
+                            } else {
+                                listaEntrenadores.get(a - 1).setPociones(po + p);
+                                listaEntrenadores.get(a - 1).setPuntos(pu - compra);
+                                System.out.println("Compra realizada");
+                            }
+                        } else if (el == 2) {
+                            System.out.println("Perfecto, espero verte pronto");
+                        }
+                    } else {
+                        System.out.println("No tienes puntos necesarios");
+                    }
+
                     break;
                 case 6:
                     System.out.println("A continuación de mostrarán todos los entrenadores \n");
                     for (int i = 0; i < listaEntrenadores.size(); i++) {
-                        System.out.println("\t Nombre: "+listaEntrenadores.get(i).getNombre());
-                        System.out.println("\t \t Nivel: "+listaEntrenadores.get(i).getNivel());
-                        System.out.println("\t \t Pokeballs: "+listaEntrenadores.get(i).getPokeballs());
-                        System.out.println("\t \t Pociones: "+listaEntrenadores.get(i).getPociones()+"\n \n");
+                        System.out.println("\t Nombre: " + listaEntrenadores.get(i).getNombre());
+                        System.out.println("\t \t Puntos: " + listaEntrenadores.get(i).getPuntos());
+                        System.out.println("\t \t Nivel: " + listaEntrenadores.get(i).getNivel());
+                        System.out.println("\t \t Pokeballs: " + listaEntrenadores.get(i).getPokeballs());
+                        System.out.println("\t \t Pociones: " + listaEntrenadores.get(i).getPociones() + "\n \n");
                     }
                     break;
                 case 7:
                     System.out.println("A continuación se mostrarán todos los pokemon \n");
                     for (int i = 0; i < listaPokemon.size(); i++) {
-                        System.out.println("\t Nombre: "+listaPokemon.get(i).getNombre());
-                        System.out.println("\t \t Tipo: "+listaPokemon.get(i).getTipopokemon());
-                        System.out.println("\t \t Habilidad: "+listaPokemon.get(i).getHabilidad());
-                        System.out.println("\t \t Ataque: "+listaPokemon.get(i).getAtaque());
-                        System.out.println("\t \t Defensa: "+listaPokemon.get(i).getDefensa());
-                        System.out.println("\t \t Velocidad :"+listaPokemon.get(i).getVelocidad());
-                        System.out.println("\t \t Vida: "+listaPokemon.get(i).getVida());
-                        System.out.println("\t \t Nivel: "+listaPokemon.get(i).getNivel());
-                        System.out.println("\t \t \t Entrenador: "+listaPokemon.get(i).getEntrenador());
+                        System.out.println("\t Nombre: " + listaPokemon.get(i).getNombre());
+                        System.out.println("\t \t Tipo: " + listaPokemon.get(i).getTipopokemon());
+                        System.out.println("\t \t Habilidad: " + listaPokemon.get(i).getHabilidad());
+                        System.out.println("\t \t Ataque: " + listaPokemon.get(i).getAtaque());
+                        System.out.println("\t \t Defensa: " + listaPokemon.get(i).getDefensa());
+                        System.out.println("\t \t Velocidad :" + listaPokemon.get(i).getVelocidad());
+                        System.out.println("\t \t Vida: " + listaPokemon.get(i).getVida());
+                        System.out.println("\t \t Nivel: " + listaPokemon.get(i).getNivel());
+                        System.out.println("\t \t \t Entrenador: " + listaPokemon.get(i).getEntrenador());
                     }
                     break;
                 case 8:

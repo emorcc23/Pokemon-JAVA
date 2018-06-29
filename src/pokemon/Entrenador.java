@@ -12,13 +12,15 @@ package pokemon;
 public class Entrenador {
     private String nombre;
     private int pokeballs;
-    private int pociones;
+    private int pociones = 0;
+    private int puntos;
     private int nivel = 0;
     
-    public Entrenador(String nombre, int pokeballs, int pociones) {
+    public Entrenador(String nombre, int pokeballs, int pociones, int puntos) {
         this.nombre = nombre;
         this.pokeballs = pokeballs;
         this.pociones = pociones;
+        this.puntos = puntos;
     }
 
     public String getNombre() {
@@ -51,6 +53,14 @@ public class Entrenador {
 
     public void setNivel(int nivel) {
         this.nivel = nivel;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
     }
     
     
