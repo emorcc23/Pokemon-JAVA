@@ -17,6 +17,7 @@ public class Pokemon {
     private int defensa;
     private int velocidad;
     private int vida;
+    private int nivel = 0;
     private String entrenador;
 
     public Pokemon(String nombre, String tipopokemon, int habilidad, int ataque, int defensa, int velocidad, int vida) {
@@ -91,6 +92,14 @@ public class Pokemon {
 
     public void setEntrenador(String entrenador) {
         this.entrenador = entrenador;
+    }
+
+    public int getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(int nivel) {
+        this.nivel = nivel;
     }
     
     

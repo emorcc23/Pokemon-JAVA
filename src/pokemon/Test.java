@@ -60,10 +60,10 @@ public class Test {
                     System.out.println("nombre");
                     String nom = entrada.next();
                     System.out.println("Tipo");
-                    System.out.println("1. "+TipoPokemon.AGUA);
-                    System.out.println("2. "+TipoPokemon.AIRE);
-                    System.out.println("3. "+TipoPokemon.FUEGO);
-                    System.out.println("4. "+TipoPokemon.TIERRA);
+                    System.out.println("1. " + TipoPokemon.AGUA);
+                    System.out.println("2. " + TipoPokemon.AIRE);
+                    System.out.println("3. " + TipoPokemon.FUEGO);
+                    System.out.println("4. " + TipoPokemon.TIERRA);
                     int type = entrada.nextInt();
                     String tipo = "desconocido";
                     if (type == 1) {
@@ -75,7 +75,7 @@ public class Test {
                     } else if (type == 4) {
                         tipo = "TIERRA";
                     }
-                    
+
                     System.out.println("Habilidad");
                     int habilidad = entrada.nextInt();
                     System.out.println("ataque");
@@ -87,20 +87,23 @@ public class Test {
                     System.out.println("Vida");
                     int vida = entrada.nextInt();
                     System.out.println("Entrenador");
-                    String entrenador = entrada.next();
-                    
+                    for (int i = 0; i < listaEntrenadores.size(); i++) {
+                        System.out.println(i + 1 + " " + listaEntrenadores.get(i).getNombre());
+                    }
+                    int entrenador = entrada.nextInt();
+
                     Pokemon pokemon1 = new Pokemon(nom, tipo, habilidad, ataque, defensa, velocidad, vida);
-                    pokemon1.setEntrenador(entrenador);
+                    pokemon1.setEntrenador(listaEntrenadores.get(entrenador - 1).getNombre());
                     listaPokemon.add(pokemon1);
                     for (int i = 0; i < listaPokemon.size(); i++) {
-                        System.out.println("nombre "+listaPokemon.get(i).getNombre());
-                        System.out.println("tipo "+listaPokemon.get(i).getTipopokemon());
-                        System.out.println("habilidad "+listaPokemon.get(i).getHabilidad());
-                        System.out.println("ataque "+listaPokemon.get(i).getAtaque());
-                        System.out.println("defensa "+listaPokemon.get(i).getDefensa());
-                        System.out.println("velocidad "+listaPokemon.get(i).getVelocidad());
-                        System.out.println("vida "+listaPokemon.get(i).getVida());
-                        System.out.println("entrenador "+ listaPokemon.get(i).getEntrenador());
+                        System.out.println("nombre " + listaPokemon.get(i).getNombre());
+                        System.out.println("tipo " + listaPokemon.get(i).getTipopokemon());
+                        System.out.println("habilidad " + listaPokemon.get(i).getHabilidad());
+                        System.out.println("ataque " + listaPokemon.get(i).getAtaque());
+                        System.out.println("defensa " + listaPokemon.get(i).getDefensa());
+                        System.out.println("velocidad " + listaPokemon.get(i).getVelocidad());
+                        System.out.println("vida " + listaPokemon.get(i).getVida());
+                        System.out.println("entrenador " + listaPokemon.get(i).getEntrenador());
                     }
                     break;
                 case 3:
@@ -110,8 +113,27 @@ public class Test {
                 case 5:
                     break;
                 case 6:
+                    System.out.println("A continuación de mostrarán todos los entrenadores \n");
+                    for (int i = 0; i < listaEntrenadores.size(); i++) {
+                        System.out.println("\t Nombre: "+listaEntrenadores.get(i).getNombre());
+                        System.out.println("\t \t Nivel: "+listaEntrenadores.get(i).getNivel());
+                        System.out.println("\t \t Pokeballs: "+listaEntrenadores.get(i).getPokeballs());
+                        System.out.println("\t \t Pociones: "+listaEntrenadores.get(i).getPociones()+"\n \n");
+                    }
                     break;
                 case 7:
+                    System.out.println("A continuación se mostrarán todos los pokemon \n");
+                    for (int i = 0; i < listaPokemon.size(); i++) {
+                        System.out.println("\t Nombre: "+listaPokemon.get(i).getNombre());
+                        System.out.println("\t \t Tipo: "+listaPokemon.get(i).getTipopokemon());
+                        System.out.println("\t \t Habilidad: "+listaPokemon.get(i).getHabilidad());
+                        System.out.println("\t \t Ataque: "+listaPokemon.get(i).getAtaque());
+                        System.out.println("\t \t Defensa: "+listaPokemon.get(i).getDefensa());
+                        System.out.println("\t \t Velocidad :"+listaPokemon.get(i).getVelocidad());
+                        System.out.println("\t \t Vida: "+listaPokemon.get(i).getVida());
+                        System.out.println("\t \t Nivel: "+listaPokemon.get(i).getNivel());
+                        System.out.println("\t \t \t Entrenador: "+listaPokemon.get(i).getEntrenador());
+                    }
                     break;
                 case 8:
                     break;
